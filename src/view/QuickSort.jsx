@@ -98,13 +98,18 @@ export default class QuickSort extends React.Component{
     }
 
     randomGene(data){
+        if(this.state && this.state.timer_player){
+            window.clearInterval(this.state.timer_player);            
+        }
+
         let state = {
             origin : data || Array.from({length:this.props.size|| 10}, ()=>{
                 return parseInt( Math.random() * 100 );
             } ),
             steps:[],
             current:-1,
-            autoplay:false
+            autoplay:false,
+            timer_player: 0
         };
         state.data = Util.clone(state.origin);   
         return state;
