@@ -1,0 +1,179 @@
+$border-color : #ccc;
+$icon-active: #086ca2;
+$icon-inactive: #888;
+$bg-item-hover: #eee;
+
+@import './icon.scss';
+
+body{
+    padding: 0px;
+    margin: 0px;
+    font-size: 2rem;
+}
+
+@media screen and (orientation: portrait){
+    body{
+        font-size: 2rem;
+    }
+}
+
+
+.WechatApp{
+    width: 100vw;
+    height: 100vh;
+
+    header{
+        text-align: center;
+    }
+
+    *{
+        font-size: 1em;
+    }
+
+    .display{
+        display: block;
+    }
+    
+    .hide{
+        display: none;
+    }
+
+    .inline-block{
+        display: inline-block
+    }
+    
+    .fa{
+        font-size: 2em;
+    }
+
+    .ViewContainer{
+        height: 85%;
+        &>.display, &>.display>*{
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+    &>section:last-child{
+        border-top: 1px solid $border-color;
+        height: 15%;
+        padding-top: 1vh;
+        &>span{
+            width:  25%;
+            height: 100%;
+            display: inline-block;
+            text-align: center;
+            color: $icon-inactive;            
+            i.fa, .icon{
+                font-size: 5em;
+                display: block;
+            }        
+            label{
+                font-size: 1em;
+            }    
+            &.active{
+                i.fa, label{
+                    color:$icon-active;
+                }
+            }
+        }
+    }
+
+    .qsort{
+        &>header{
+            height:10%;
+            i.fa{
+                margin:0 2em;
+                font-size: 2em;
+            }
+        }
+        &>section{
+            height:90%;
+            section.inline-block{
+                width:25%;
+                vertical-align: top;
+                max-height: 100%;
+                overflow-y: auto;
+            }
+        }
+
+        li{
+            list-style-type: none;
+        }
+
+
+
+        .nav{
+            li.active{
+                background-color: $bg-item-hover;
+            }
+        }
+
+        .leftItem{
+            background-color: #d9b3e6;
+        }
+
+        .rightItem{
+            background-color: #81c2d6;
+        }
+
+        .pivot{
+            background-color: #8192d6;
+        }
+    }
+
+    .dialog{
+        &>header:first-child{
+           text-align: right;
+           font-size: 2em;
+           &+section{
+               height:calc(100% - 2em);
+           }
+        }
+    }
+
+    
+
+}
+
+@media screen and (orientation: landscape) {
+    body{
+        font-size: 1rem;
+    }
+
+    .fa, .icon{
+        font-size: 1em;
+    }
+
+    .WechatApp{
+        .fa, .icon{
+            font-size: 1em;
+        }
+    
+        .ViewContainer{
+            height: 85%;
+            &>.display, &>.display>*{
+                height: 100%;
+            }
+        }
+        &>section:last-child{
+
+            &>span{
+          
+                i.fa, .icon{
+                    font-size: 3em;
+                }        
+                label{
+                    font-size: 1em;
+                }    
+            }
+        }        
+    
+        .dialog{
+            header{
+               font-size: 1em;
+            }
+        }
+    
+       
+    }
+}

@@ -1,0 +1,28 @@
+.icon {
+    opacity: 0.618;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &::before{
+      content:'&';
+      color:transparent;
+    }
+
+    &.data-struct{
+      background-image: url('./icons/data-struct.svg');
+    }
+
+    &.algorithm{
+      background-image: url('./icons/algorithm.svg');
+    }
+
+    &.practice{
+      background-image: url('./icons/practice.svg');
+    }
+
+}
+
+.active .icon{
+  opacity: 1;
+}
+
