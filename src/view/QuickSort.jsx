@@ -133,7 +133,7 @@ export default class QuickSort extends React.Component{
     navigator(size){
         return (<section className="inline-block nav">
             <header>All Steps ({this.state.current+1}/{size})</header>
-            <ul>
+            <ul ref="nav">
                 {new Array(size).fill(0).map( (item, index)=>{
                     return (<li key={index} className={this.state.current==index?"active":""} onClick={ ()=>{
                             this.setState({
@@ -143,6 +143,17 @@ export default class QuickSort extends React.Component{
                 } )}
             </ul>
         </section>);
+    }
+
+    componentDidUpdate(){
+        const scrollHeight = this.refs.nav.scrollHeight;
+        const itemHeight = scrollHeight / this.state.steps.length;
+
+        const aCount = Math.round(this.refs.nav.offsetHeight / itemHeight);
+        
+        if(this.state.current > aCount/2 ){
+            this.refs.nav.scrollTop =  itemHeight * (this.state.current - aCount/2);         
+        }
     }
 
     sorted(data){
