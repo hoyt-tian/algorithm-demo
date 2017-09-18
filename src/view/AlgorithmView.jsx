@@ -18,7 +18,7 @@ class AlgorithmView extends React.Component{
                     <ul>
                         <li onClick={()=>{
                             this.props.container.pushView(<Dialog container={this.props.container}>
-                                <QuickSort data={[53,55,69,50,25,5,37,68,49,99]}/>
+                                <QuickSort />
                             </Dialog>)
                             }}>快速排序</li>
                     </ul>

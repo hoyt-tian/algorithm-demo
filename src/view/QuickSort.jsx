@@ -98,13 +98,18 @@ export default class QuickSort extends React.Component{
     }
 
     randomGene(data){
+        if(this.state && this.state.timer_player){
+            window.clearInterval(this.state.timer_player);            
+        }
+
         let state = {
             origin : data || Array.from({length:this.props.size|| 10}, ()=>{
                 return parseInt( Math.random() * 100 );
             } ),
             steps:[],
             current:-1,
-            autoplay:false
+            autoplay:false,
+            timer_player: 0
         };
         state.data = Util.clone(state.origin);   
         return state;
@@ -128,7 +133,7 @@ export default class QuickSort extends React.Component{
     navigator(size){
         return (<section className="inline-block nav">
             <header>All Steps ({this.state.current+1}/{size})</header>
-            <ul>
+            <ul ref="nav">
                 {new Array(size).fill(0).map( (item, index)=>{
                     return (<li key={index} className={this.state.current==index?"active":""} onClick={ ()=>{
                             this.setState({
@@ -138,6 +143,17 @@ export default class QuickSort extends React.Component{
                 } )}
             </ul>
         </section>);
+    }
+
+    componentDidUpdate(){
+        const scrollHeight = this.refs.nav.scrollHeight;
+        const itemHeight = scrollHeight / this.state.steps.length;
+
+        const aCount = Math.round(this.refs.nav.offsetHeight / itemHeight);
+        
+        if(this.state.current > aCount/2 ){
+            this.refs.nav.scrollTop =  itemHeight * (this.state.current - aCount/2);         
+        }
     }
 
     sorted(data){
