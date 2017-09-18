@@ -7,7 +7,7 @@ class ThirdStack extends StackView{
     }
 
     baseView(){
-        return (<section>3rd view</section>);
+        return (<section>待更新</section>);
     }
 
 }

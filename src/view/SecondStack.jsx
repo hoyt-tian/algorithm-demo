@@ -8,7 +8,7 @@ class SecondStack extends StackView{
     }
 
     baseView(){
-        return (<section>SecondStack</section>);
+        return (<section>待更新</section>);
     }
 
 }
