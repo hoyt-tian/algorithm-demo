@@ -61,7 +61,7 @@ module.exports = {
  
     new html({
         inject: true,
-        title:'DM',
+        title:'经典算法动态演示',
         template:'src/index.ejs',
         chunks:["index"]
     })
