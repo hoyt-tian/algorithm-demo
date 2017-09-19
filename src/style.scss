@@ -80,18 +80,19 @@ body{
 
     .qsort{
         &>header{
-            height:10%;
+            height:15%;
             i.fa{
                 margin:0 1em;
                 font-size: 2em;
             }
         }
         &>section{
-            height:90%;
+            height:85%;
             section.inline-block{
                 width:25%;
                 vertical-align: top;
                 height: 100%;
+               
                 &.nav{
                     max-height: calc(100% - 1ex);
                 }
@@ -135,7 +136,7 @@ body{
            text-align: right;
            font-size: 2em;
            &+section{
-               height:calc(100% - 8ex);
+               height:calc(100% - 5ex);
            }
         }
     }
