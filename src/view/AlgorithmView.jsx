@@ -1,6 +1,8 @@
 import React from 'react';
 import Dialog from '../component/Dialog.jsx';
 import QuickSort from './QuickSort.jsx';
+import InsertSort from './InsertSort.jsx';
+
 
 
 class AlgorithmView extends React.Component{
@@ -21,6 +23,11 @@ class AlgorithmView extends React.Component{
                                 <QuickSort />
                             </Dialog>)
                             }}>快速排序</li>
+                        <li onClick={()=>{
+                            this.props.container.pushView(<Dialog container={this.props.container}>
+                                <InsertSort />
+                            </Dialog>)
+                            }}>直插排序</li>
                     </ul>
                 </section>
 
